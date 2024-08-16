@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login & Signup Page</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #451952;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        max-width: 400px;
+        margin: 50px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .form-group {
+        margin-bottom: 20px;
+    }
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    input[type="text"],
+    input[type="password"],
+    input[type="email"],
+    input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+    input[type="submit"] {
+        background-color: #007bff;
+        color: #fff;
+        cursor: pointer;
+    }
+    input[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+    .form-group:last-child {
+        margin-bottom: 0;
+    }
+    .switch-page {
+        text-align: center;
+    }
+    .switch-page a {
+        color: #007bff;
+        text-decoration: none;
+    }
+    .switch-page a:hover {
+        text-decoration: underline;
+    }
+    /* Initially display signup form */
+    #signupForm {
+        display: block;
+    }
+    #loginForm {
+        display: none;
+    }
+</style>
+</head>
+<body>
+<div class="container" id="signupForm">
+    <h2>Sign Up</h2>
+    <form action="signup.php" method="POST">
+        <div class="form-group">
+            <label for="fullname">Full Name</label>
+            <input type="text" id="fullname" name="fullname" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="newPassword">Password</label>
+            <input type="password" id="newPassword" name="newPassword" required>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Sign Up">
+        </div>
+    </form>
+    <div class="switch-page">
+        <span>Already have an account? <a href="#" onclick="toggleForm()">Login</a></span>
+    </div>
+</div>
+
+<div class="container" id="loginForm">
+    <h2>Login</h2>
+    <form action="login.php" method="POST">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Login">
+        </div>
+    </form>
+    <div class="switch-page">
+        <span>Don't have an account? <a href="#" onclick="toggleForm()">Sign up</a></span>
+    </div>
+</div>
+
+<div id="homeContent">
+    <h2>Welcome to Home Page</h2>
+    <p>This is the content displayed after logging in.</p>
+    <p>You can add any additional content or functionality here.</p>
+    
+</div>
+<script>
+    function toggleForm() {
+        var loginForm = document.getElementById('loginForm');
+        var signupForm = document.getElementById('signupForm');
+        if (loginForm.style.display === 'none') {
+            loginForm.style.display = 'block';
+            signupForm.style.display = 'none';
+        } else {
+            loginForm.style.display = 'none';
+            signupForm.style.display = 'block';
+        }
+    }
+</script>
+</body>
+</html>
+
+
+  
